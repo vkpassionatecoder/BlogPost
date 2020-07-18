@@ -3,6 +3,10 @@ var router = express.Router();
 const fetch = require('node-fetch');
 
 /* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
 router.get('/posts', async (req, res, next) => {
   let offset = req.query.offset;
   const blog_url = `https://public-api.wordpress.com/rest/v1.1/sites/107403796/posts/?order_by=date&number=25&offset=${offset}`;
